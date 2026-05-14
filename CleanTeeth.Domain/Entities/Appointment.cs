@@ -36,7 +36,7 @@ namespace CleanTeeth.Domain.Entities
             {
                 throw new BusinessRuleException("Only scheduled appoinments can be cancelled");
             }
-            Status = AppointmentStatusEnum.Canceled;
+            Status = AppointmentStatusEnum.Cancelled;
         }
         public void Complete()
         {

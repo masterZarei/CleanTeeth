@@ -12,7 +12,7 @@ namespace CleanTeeth.Domain.ValueObjects
             {
                 throw new BusinessRuleException("The start time must be before the end time.");
             }
-            if (start < DateTime.UtcNow)
+            if (start < DateTime.UtcNow.AddSeconds(-10))
             {
                 throw new BusinessRuleException("The start time cannot be in the past");
             }

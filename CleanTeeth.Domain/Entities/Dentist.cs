@@ -15,7 +15,7 @@ namespace CleanTeeth.Domain.Entities
             {
                 throw new BusinessRuleException($"The {nameof(name)} is required.");
             }
-            if (Email is null)
+            if (email is null)
             {
                 throw new BusinessRuleException($"The {nameof(email)} is required.");
             }
