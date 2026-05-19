@@ -22,12 +22,7 @@ namespace CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficeD
             {
                 throw new NotFoundException();
             }
-            var dto = new DentalOfficeDetailDTO
-            {
-                Id = dentalOffice.Id,
-                Name = dentalOffice.Name
-            };
-            return dto;
+            return dentalOffice.MapToDentalOfficeDetailDto();
         }
     }
 }
