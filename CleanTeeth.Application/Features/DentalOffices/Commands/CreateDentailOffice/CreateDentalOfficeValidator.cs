@@ -2,7 +2,7 @@
 
 namespace CleanTeeth.Application.Features.DentalOffices.Commands.CreateDentailOffice
 {
-    public class CreateDentalOfficeValidator : AbstractValidator<CreateDentailOfficeCommand>
+    public class CreateDentalOfficeValidator : AbstractValidator<CreateDentalOfficeCommand>
     {
         public CreateDentalOfficeValidator()
         {

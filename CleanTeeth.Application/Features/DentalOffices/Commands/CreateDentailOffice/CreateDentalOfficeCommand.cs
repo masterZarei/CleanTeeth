@@ -2,7 +2,7 @@
 
 namespace CleanTeeth.Application.Features.DentalOffices.Commands.CreateDentailOffice
 {
-    public class CreateDentailOfficeCommand : IRequest<Guid>
+    public class CreateDentalOfficeCommand : IRequest<Guid>
     {
         public required string Name { get; set; }
     }

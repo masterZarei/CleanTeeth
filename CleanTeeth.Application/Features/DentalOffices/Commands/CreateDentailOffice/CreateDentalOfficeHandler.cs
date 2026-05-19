@@ -7,7 +7,7 @@ using FluentValidation;
 
 namespace CleanTeeth.Application.Features.DentalOffices.Commands.CreateDentailOffice
 {
-    public class CreateDentalOfficeHandler : IRequestHandler<CreateDentailOfficeCommand, Guid>
+    public class CreateDentalOfficeHandler : IRequestHandler<CreateDentalOfficeCommand, Guid>
     {
         private readonly IDentalOfficeRepository repository;
         private readonly IUnitOfWork unitOfWork;
@@ -17,7 +17,7 @@ namespace CleanTeeth.Application.Features.DentalOffices.Commands.CreateDentailOf
             this.repository = repository;
             this.unitOfWork = unitOfWork;
         }
-        public async Task<Guid> Handle(CreateDentailOfficeCommand command)
+        public async Task<Guid> Handle(CreateDentalOfficeCommand command)
         {
 
             var dentalOffice = new DentalOffice(command.Name);
