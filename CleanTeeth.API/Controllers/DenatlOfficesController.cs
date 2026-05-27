@@ -1,6 +1,7 @@
 ﻿using CleanTeeth.API.DTOs.DenatlOffices;
 using CleanTeeth.Application.Features.DentalOffices.Commands.CreateDentailOffice;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficeDetail;
+using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
 using CleanTeeth.Application.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,14 @@ namespace CleanTeeth.API.Controllers
         {
             this.mediator = mediator;
         }
+        [HttpGet]
+        public async Task<ActionResult<List<DentalOfficeDetailDTO>>> GetAll()
+        {
+            var query = new GetDentalOfficesListQuery();
+            var result = await mediator.Send(query);
+            return Ok(result);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDentalOfficeById(Guid id)
         {
