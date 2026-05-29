@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CleanTeeth.Application.Utilities
+﻿namespace CleanTeeth.Application.Utilities
 {
     public interface IRequest<TResponse>
+    {
+    }
+    public interface IRequest
     {
     }
 }

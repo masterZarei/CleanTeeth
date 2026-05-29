@@ -1,8 +1,5 @@
 ﻿using CleanTeeth.Application.Exceptions;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CleanTeeth.Application.Utilities
 {
@@ -16,8 +13,40 @@ namespace CleanTeeth.Application.Utilities
         }
         public async Task<TResponse> Send<TResponse>(IRequest<TResponse> request)
         {
+
+            await ApplyValidation(request);
+            var handlerType = typeof(IRequestHandler<,>)
+                .MakeGenericType(request.GetType(), typeof(TResponse));
+
+            var handler = serviceProvider.GetService(handlerType);
+
+            if (handler == null)
+            {
+                throw new MediatorException($"Handler was not found for {request.GetType().Name}");
+            }
+            var method = handlerType.GetMethod("Handle");
+            return await (Task<TResponse>)method.Invoke(handler, [request]);
+        }
+
+        public async Task Send(IRequest request)
+        {
+            await ApplyValidation(request);
+
+            var handlerType = typeof(IRequestHandler<>).MakeGenericType(request.GetType());
+            var handler = serviceProvider.GetService(handlerType);
+            if (handler is null) 
+            {
+                throw new MediatorException($"Handler was not found for {request.GetType().Name}");
+            }
+
+            var method = handlerType.GetMethod("Handle");
+            await (Task)method.Invoke(handler, [request])!;
+
+        }
+        private async Task ApplyValidation(object request)
+        {
             var validatorType = typeof(IValidator<>)
-                .MakeGenericType(request.GetType());
+               .MakeGenericType(request.GetType());
             var validator = serviceProvider.GetService(validatorType) as IValidator;
             if (validator is not null)
             {
@@ -33,18 +62,6 @@ namespace CleanTeeth.Application.Utilities
                     throw new CustomValidationException(validationResult);
                 }
             }
-
-            var handlerType = typeof(IRequestHandler<,>)
-                .MakeGenericType(request.GetType(), typeof(TResponse));
-
-            var handler = serviceProvider.GetService(handlerType);
-
-            if (handler == null)
-            {
-                throw new MediatorException($"Handler was not found for {request.GetType().Name}");
-            }
-            var method = handlerType.GetMethod("Handle");
-            return await (Task<TResponse>)method.Invoke(handler, [request]);
         }
     }
 }
