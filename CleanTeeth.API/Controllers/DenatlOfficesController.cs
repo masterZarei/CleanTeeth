@@ -1,5 +1,6 @@
 ﻿using CleanTeeth.API.DTOs.DenatlOffices;
 using CleanTeeth.Application.Features.DentalOffices.Commands.CreateDentailOffice;
+using CleanTeeth.Application.Features.DentalOffices.Commands.UpdateDentalOffice;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficeDetail;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
 using CleanTeeth.Application.Utilities;
@@ -36,9 +37,17 @@ namespace CleanTeeth.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateDentalOffice([FromBody] CreateDentalOfficeDTO createDentalOfficeDTO)
         {
-            var command = new CreateDentalOfficeCommand { Name= createDentalOfficeDTO.Name };
+            var command = new CreateDentalOfficeCommand { Name = createDentalOfficeDTO.Name };
             var result = await mediator.Send(command);
             return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(Guid id, UpdateDentalOfficeDTO updateDentalOfficeDTO)
+        {
+            var command = new UpdateDentalOfficeCommand { Id = id, Name = updateDentalOfficeDTO.Name };
+            await mediator.Send(command);
+            return NoContent();
         }
     }
 }

@@ -14,3 +14,8 @@ Content-Type: application/json
 }
 
 ###
+PUT {{CleanTeeth.API_HostAddress}}/019e63b6-a2eb-7987-af46-af05ac4224e5
+Content-Type: application/json
+{
+  "name":"Dental Office CCC"
+}

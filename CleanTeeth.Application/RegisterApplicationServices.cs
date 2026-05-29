@@ -1,4 +1,5 @@
 ﻿using CleanTeeth.Application.Features.DentalOffices.Commands.CreateDentailOffice;
+using CleanTeeth.Application.Features.DentalOffices.Commands.UpdateDentalOffice;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficeDetail;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
 using CleanTeeth.Application.Utilities;
@@ -19,6 +20,9 @@ namespace CleanTeeth.Application
 
             services.AddScoped<IRequestHandler<GetDentalOfficesListQuery, List<DentalOfficesListDTO>>,
                 GetDentalOfficesListQueryHandler>();
+
+            services.AddScoped<IRequestHandler<UpdateDentalOfficeCommand>,
+                UpdateDentalOfficeCommandHandler>();
             return services;
         }
     }
