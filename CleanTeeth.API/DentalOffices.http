@@ -10,7 +10,7 @@ ACCEPT: application/json
 POST {{CleanTeeth.API_HostAddress}}
 Content-Type: application/json
 {
-  "name":"Dental Office B"
+  "name":"Dental Office III"
 }
 
 ###
@@ -19,3 +19,5 @@ Content-Type: application/json
 {
   "name":"Dental Office CCC"
 }
+###
+DELETE {{CleanTeeth.API_HostAddress}}/019e7a57-4d6f-7a4e-ac73-b4ba0840b4f9

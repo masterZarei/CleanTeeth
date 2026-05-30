@@ -1,5 +1,6 @@
 ﻿using CleanTeeth.API.DTOs.DenatlOffices;
 using CleanTeeth.Application.Features.DentalOffices.Commands.CreateDentailOffice;
+using CleanTeeth.Application.Features.DentalOffices.Commands.DeleteDentalOffice;
 using CleanTeeth.Application.Features.DentalOffices.Commands.UpdateDentalOffice;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficeDetail;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
@@ -46,6 +47,14 @@ namespace CleanTeeth.API.Controllers
         public async Task<IActionResult> Put(Guid id, UpdateDentalOfficeDTO updateDentalOfficeDTO)
         {
             var command = new UpdateDentalOfficeCommand { Id = id, Name = updateDentalOfficeDTO.Name };
+            await mediator.Send(command);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var command = new DeleteDentalOfficeCommand { Id = id};
             await mediator.Send(command);
             return NoContent();
         }
