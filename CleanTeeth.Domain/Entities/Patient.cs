@@ -9,6 +9,7 @@ namespace CleanTeeth.Domain.Entities
         public string Name { get; private set; } = null!;
         public EmailValueObject Email { get; private set; } = null!;
 
+        private Patient() { }
         public Patient(string name, EmailValueObject email)
         {
             if (string.IsNullOrWhiteSpace(name))

@@ -5,6 +5,7 @@ namespace CleanTeeth.Domain.ValueObjects
     public record EmailValueObject
     {
         public string Value { get; } = null!;
+        private EmailValueObject(){ }
         public EmailValueObject(string email)
         {
             if (string.IsNullOrWhiteSpace(email))

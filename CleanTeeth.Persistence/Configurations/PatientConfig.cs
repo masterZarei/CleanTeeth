@@ -11,6 +11,11 @@ namespace CleanTeeth.Persistence.Configurations
             builder.Property(prop=>prop.Name)
                 .HasMaxLength(210)
                 .IsRequired();
+
+            builder.ComplexProperty(prop => prop.Email, action =>
+            {
+                action.Property(e => e.Value).HasColumnName("Email").HasMaxLength(254);
+            });
         }
     }
 }
