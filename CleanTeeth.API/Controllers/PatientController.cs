@@ -1,4 +1,5 @@
 ﻿using CleanTeeth.API.DTOs.Patients;
+using CleanTeeth.API.Utilities;
 using CleanTeeth.Application.Features.Patients.Commands.CreatePatient;
 using CleanTeeth.Application.Features.Patients.Queries.GetPatientsList;
 using CleanTeeth.Application.Utilities;
@@ -17,10 +18,11 @@ namespace CleanTeeth.API.Controllers
             _mediator = mediator;
         }
         [HttpGet]
-        public async Task<ActionResult<List<PatientListDTO>>> Get()
+        public async Task<ActionResult<List<PatientListDTO>>> Get([FromQuery] GetPatientsListQuery query)
         {
-            var query = new GetPatientsListQuery();
-            return await _mediator.Send(query);
+            var result = await _mediator.Send(query);
+            HttpContext.InsertPaginationsInformationInHeader(result.TotalAmountOfRecords);
+            return result.Elements;
         }
 
         [HttpPost]

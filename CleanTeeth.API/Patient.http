@@ -1,6 +1,6 @@
 @CleanTeeth.API_HostAddress = http://localhost:5104/api/patients
 
-GET {{CleanTeeth.API_HostAddress}}
+GET {{CleanTeeth.API_HostAddress}}?page=2&recordsPerPage=1
 ACCEPT: application/json
 ###
 GET {{CleanTeeth.API_HostAddress}}/019E63B6-A2EB-7987-AF46-AF05AC4224E5
@@ -10,8 +10,8 @@ ACCEPT: application/json
 POST {{CleanTeeth.API_HostAddress}}
 Content-Type: application/json
 {
-  "name":"MohammadMahdi Zarei",
-  "email":"emzacode@gmail.com"
+  "name":"Mohsen Zarei",
+  "email":"Moh@gmail.com"
 }
 
 ###
