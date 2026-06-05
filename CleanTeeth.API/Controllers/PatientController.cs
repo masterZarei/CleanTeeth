@@ -1,6 +1,7 @@
 ﻿using CleanTeeth.API.DTOs.Patients;
 using CleanTeeth.API.Utilities;
 using CleanTeeth.Application.Features.Patients.Commands.CreatePatient;
+using CleanTeeth.Application.Features.Patients.Queries.GetPatientDetail;
 using CleanTeeth.Application.Features.Patients.Queries.GetPatientsList;
 using CleanTeeth.Application.Utilities;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,12 @@ namespace CleanTeeth.API.Controllers
             var result = await _mediator.Send(query);
             HttpContext.InsertPaginationsInformationInHeader(result.TotalAmountOfRecords);
             return result.Elements;
+        }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PatientDetailDTO>> Get(Guid id)
+        {
+            var query = new GetPatientDetailQuery { Id = id};
+            return await _mediator.Send(query);
         }
 
         [HttpPost]
