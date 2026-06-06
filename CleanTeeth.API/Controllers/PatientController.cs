@@ -1,6 +1,7 @@
 ﻿using CleanTeeth.API.DTOs.Patients;
 using CleanTeeth.API.Utilities;
 using CleanTeeth.Application.Features.Patients.Commands.CreatePatient;
+using CleanTeeth.Application.Features.Patients.Commands.DeletePatient;
 using CleanTeeth.Application.Features.Patients.Commands.UpdatePatient;
 using CleanTeeth.Application.Features.Patients.Queries.GetPatientDetail;
 using CleanTeeth.Application.Features.Patients.Queries.GetPatientsList;
@@ -52,6 +53,16 @@ namespace CleanTeeth.API.Controllers
                 Id = id,
                 Name = updatePatientDTO.Name,
                 Email = updatePatientDTO.Email,
+            };
+            await _mediator.Send(command);
+            return NoContent();
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var command = new DeletePatientCommand
+            {
+                Id = id,
             };
             await _mediator.Send(command);
             return NoContent();
