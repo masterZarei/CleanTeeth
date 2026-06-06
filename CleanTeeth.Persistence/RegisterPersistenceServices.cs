@@ -16,6 +16,7 @@ namespace CleanTeeth.Persistence
                 options.UseSqlServer(configuration.GetConnectionString("CleanTeethConnectionString")));
 
             services.AddScoped<IDentalOfficeRepository, DentalOfficeRepository>();
+            services.AddScoped<IDentistRepository, DentistRepository>();
             services.AddScoped<IPatientRepository, PatientRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWorkEFCore>();
             return services;

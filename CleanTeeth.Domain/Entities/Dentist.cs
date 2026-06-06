@@ -5,6 +5,10 @@ namespace CleanTeeth.Domain.Entities
 {
     public class Dentist
     {
+        private Dentist()
+        {
+            
+        }
         public Guid Id { get; private set; }
         public string Name { get; private set; } = null!;
         public EmailValueObject Email { get; private set; } = null!;

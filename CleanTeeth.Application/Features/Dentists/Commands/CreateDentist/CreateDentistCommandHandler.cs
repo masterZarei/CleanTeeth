@@ -4,30 +4,29 @@ using CleanTeeth.Application.Utilities;
 using CleanTeeth.Domain.Entities;
 using CleanTeeth.Domain.ValueObjects;
 
-namespace CleanTeeth.Application.Features.Patients.Commands.CreatePatient
+namespace CleanTeeth.Application.Features.Dentists.Commands.CreateDentist
 {
-    public class CreatePatientCommandHandler : IRequestHandler<CreatePatientCommand, Guid>
+    public class CreateDentistCommandHandler : IRequestHandler<CreateDentistCommand, Guid>
     {
-        private readonly IPatientRepository _patientRepository;
+        private readonly IDentistRepository _dentistRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreatePatientCommandHandler(IPatientRepository patientRepository, IUnitOfWork unitOfWork)
+        public CreateDentistCommandHandler(IDentistRepository dentistRepository, IUnitOfWork unitOfWork)
         {
-            _patientRepository = patientRepository;
+            _dentistRepository = dentistRepository;
             _unitOfWork = unitOfWork;
         }
-        public async Task<Guid> Handle(CreatePatientCommand request)
+        public async Task<Guid> Handle(CreateDentistCommand request)
         {
             var email = new EmailValueObject(request.Email);
-            var patient = new Patient(request.Name , email);
-
+            var dentist = new Dentist(request.Name, email);
             try
             {
-                var result = await _patientRepository.Add(patient);
+                var result = await _dentistRepository.Add(dentist);
                 await _unitOfWork.Commit();
                 return result.Id;
             }
-            catch
+            catch (Exception)
             {
                 await _unitOfWork.RollBack();
                 throw;
