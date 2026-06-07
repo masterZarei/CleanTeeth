@@ -1,0 +1,9 @@
+﻿namespace CleanTeeth.Application.Features.Dentists.Queries.GetDentistList
+{
+    public class DentistListDTO
+    {
+        public Guid Id { get; set; }
+        public required string Name { get; set; }
+        public required string Email { get; set; }
+    }
+}
