@@ -2,7 +2,7 @@
 
 namespace CleanTeeth.Application.Features.Patients.Queries.GetPatientsList
 {
-    public static class MapperExtentions
+    internal static class MapperExtentions
     {
         internal static PatientListDTO ToDTO(this Patient patient)
         {
