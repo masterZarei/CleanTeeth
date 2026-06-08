@@ -15,11 +15,11 @@ Content-Type: application/json
 }
 
 ###
-PUT {{CleanTeeth.API_HostAddress}}/019e9235-fe7b-7757-b9ab-d0836d5664aa
+PUT {{CleanTeeth.API_HostAddress}}/019ea653-e459-7a65-a6c4-25468e0eddd7
 Content-Type: application/json
 {
-  "name":"Mojtaba Pashmaki",
-  "email":"pashmak@gmail.com"
+  "name":"Mojtaba Pashmakabadi",
+  "email":"pashmakabadi@gmail.com"
 }
 ###
 DELETE {{CleanTeeth.API_HostAddress}}/019ea625-7bd2-7513-8289-498384b4a2f9

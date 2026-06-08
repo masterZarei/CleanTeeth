@@ -33,7 +33,6 @@ namespace CleanTeeth.Application.Features.Patients.Commands.UpdatePatient
             {
                 await _unitOfWork.RollBack();
                 throw;
-                throw;
             }
 
         }

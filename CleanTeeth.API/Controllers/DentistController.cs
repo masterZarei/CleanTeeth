@@ -2,6 +2,7 @@
 using CleanTeeth.API.Utilities;
 using CleanTeeth.Application.Features.Dentists.Commands.CreateDentist;
 using CleanTeeth.Application.Features.Dentists.Commands.DeleteDentist;
+using CleanTeeth.Application.Features.Dentists.Commands.UpdateDentist;
 using CleanTeeth.Application.Features.Dentists.Queries.GetDentistDetail;
 using CleanTeeth.Application.Features.Dentists.Queries.GetDentistList;
 using CleanTeeth.Application.Utilities;
@@ -42,6 +43,18 @@ namespace CleanTeeth.API.Controllers
             };
             await _mediator.Send(command);
             return Ok();
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(Guid id, UpdateDentistDTO updateDentistDTO)
+        {
+            var command = new UpdateDentistCommand
+            {
+                Id = id,
+                Name = updateDentistDTO.Name,
+                Email = updateDentistDTO.Email,
+            };
+            await _mediator.Send(command);
+            return NoContent();
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
