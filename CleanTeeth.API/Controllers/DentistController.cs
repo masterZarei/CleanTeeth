@@ -1,10 +1,9 @@
 ﻿using CleanTeeth.API.DTOs.Dentists;
 using CleanTeeth.API.Utilities;
 using CleanTeeth.Application.Features.Dentists.Commands.CreateDentist;
+using CleanTeeth.Application.Features.Dentists.Commands.DeleteDentist;
 using CleanTeeth.Application.Features.Dentists.Queries.GetDentistDetail;
 using CleanTeeth.Application.Features.Dentists.Queries.GetDentistList;
-using CleanTeeth.Application.Features.Patients.Queries.GetPatientDetail;
-using CleanTeeth.Application.Features.Patients.Queries.GetPatientsList;
 using CleanTeeth.Application.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,6 +42,16 @@ namespace CleanTeeth.API.Controllers
             };
             await _mediator.Send(command);
             return Ok();
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var command = new DeleteDentistCommand
+            {
+                Id = id,
+            };
+            await _mediator.Send(command);
+            return NoContent();
         }
     }
 }

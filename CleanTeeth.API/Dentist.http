@@ -10,8 +10,8 @@ ACCEPT: application/json
 POST {{CleanTeeth.API_HostAddress}}
 Content-Type: application/json
 {
-  "name":"Dr.Mohsen Zarei",
-  "email":"Moh@gmail.com"
+  "name":"Dr.Mojtaba Pashmaki",
+  "email":"pashmak@gmail.com"
 }
 
 ###
@@ -22,4 +22,4 @@ Content-Type: application/json
   "email":"pashmak@gmail.com"
 }
 ###
-DELETE {{CleanTeeth.API_HostAddress}}/019e9dfe-601e-7243-a753-9f77a107057c
+DELETE {{CleanTeeth.API_HostAddress}}/019ea625-7bd2-7513-8289-498384b4a2f9
