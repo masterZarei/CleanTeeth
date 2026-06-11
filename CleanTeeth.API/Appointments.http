@@ -3,7 +3,7 @@
 GET {{CleanTeeth.API_HostAddress}}
 ACCEPT: application/json
 ###
-GET {{CleanTeeth.API_HostAddress}}/019E63B6-A2EB-7987-AF46-AF05AC4224E5
+GET {{CleanTeeth.API_HostAddress}}/019EB0AC-F297-7CDE-845D-36F84C0C558F
 ACCEPT: application/json
 
 ###

@@ -20,5 +20,13 @@ namespace CleanTeeth.Persistence.Repositories
                 .Where(x => x.DentistId == dentistId && x.Status == AppointmentStatusEnum.Scheduled
                 && start < x.TimeInterval.End && end > x.TimeInterval.Start).AnyAsync();
         }
+        new public async Task<Appointment?> GetById(Guid id)
+        {
+            return await _context.Appointments
+                .Include(x => x.Patient)
+                .Include(x => x.Dentist)
+                .Include(x => x.DentalOffice)
+                .FirstOrDefaultAsync(x => x.Id == id);
+        }
     }
 }
