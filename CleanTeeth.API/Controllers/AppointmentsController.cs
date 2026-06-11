@@ -1,6 +1,7 @@
 ﻿using CleanTeeth.API.DTOs.Appointments;
 using CleanTeeth.Application.Features.Appointments.Commands.CreateAppointment;
 using CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentDetail;
+using CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentsList;
 using CleanTeeth.Application.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +16,11 @@ namespace CleanTeeth.API.Controllers
         public AppointmentsController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+        [HttpGet]
+        public async Task<ActionResult<List<AppointmentsListDTO>>> Get([FromQuery] GetAppointmentsListQuery query)
+        {
+            return await _mediator.Send(query);
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<AppointmentDetailDTO>> Get(Guid id)
