@@ -1,9 +1,9 @@
-@CleanTeeth.API_HostAddress = http://localhost:5104/api/appointments
+@CleanTeeth.API_HostAddress = http://localhost:4554/api/appointments
 
 GET {{CleanTeeth.API_HostAddress}}
 ACCEPT: application/json
 ###
-GET {{CleanTeeth.API_HostAddress}}/019EB0AC-F297-7CDE-845D-36F84C0C558F
+GET {{CleanTeeth.API_HostAddress}}/019eb0ac-f297-7cde-845d-36f84c0c558f
 ACCEPT: application/json
 
 ###
@@ -19,10 +19,7 @@ Content-Type: application/json
 }
 
 ###
-PUT {{CleanTeeth.API_HostAddress}}/019e63b6-a2eb-7987-af46-af05ac4224e5
-Content-Type: application/json
-{
-  "name":"Dental Office CCC"
-}
+POST {{CleanTeeth.API_HostAddress}}/019EB59B-CC21-74F2-B479-499A43DFFFFE/complete
+
 ###
 DELETE {{CleanTeeth.API_HostAddress}}/019e7a57-4d6f-7a4e-ac73-b4ba0840b4f9

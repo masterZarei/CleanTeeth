@@ -1,4 +1,5 @@
 ﻿using CleanTeeth.API.DTOs.Appointments;
+using CleanTeeth.Application.Features.Appointments.Commands.CompleteAppointment;
 using CleanTeeth.Application.Features.Appointments.Commands.CreateAppointment;
 using CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentDetail;
 using CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentsList;
@@ -38,8 +39,15 @@ namespace CleanTeeth.API.Controllers
                 StartDate = createAppointmentDTO.StartDate,
                 EndDate = createAppointmentDTO.EndDate,
             };
-            var result = await _mediator.Send(command);
+            await _mediator.Send(command);
             return Ok();
+        }
+        [HttpPost("{id}/complete")]
+        public async Task<IActionResult> Complete(Guid id)
+        {
+            var command = new CompleteAppointmentCommand { Id = id };
+            await _mediator.Send(command);
+            return NoContent();
         }
     }
 }
