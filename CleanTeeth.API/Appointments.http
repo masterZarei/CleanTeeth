@@ -22,4 +22,7 @@ Content-Type: application/json
 POST {{CleanTeeth.API_HostAddress}}/019EB59B-CC21-74F2-B479-499A43DFFFFE/complete
 
 ###
+POST {{CleanTeeth.API_HostAddress}}/019eb0ac-f297-7cde-845d-36f84c0c558f/cancel
+
+###
 DELETE {{CleanTeeth.API_HostAddress}}/019e7a57-4d6f-7a4e-ac73-b4ba0840b4f9

@@ -1,4 +1,5 @@
 ﻿using CleanTeeth.API.DTOs.Appointments;
+using CleanTeeth.Application.Features.Appointments.Commands.CancelAppointment;
 using CleanTeeth.Application.Features.Appointments.Commands.CompleteAppointment;
 using CleanTeeth.Application.Features.Appointments.Commands.CreateAppointment;
 using CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentDetail;
@@ -46,6 +47,13 @@ namespace CleanTeeth.API.Controllers
         public async Task<IActionResult> Complete(Guid id)
         {
             var command = new CompleteAppointmentCommand { Id = id };
+            await _mediator.Send(command);
+            return NoContent();
+        }
+        [HttpPost("{id}/cancel")]
+        public async Task<IActionResult> Cancel(Guid id)
+        {
+            var command = new CancelAppointmentCommand { Id = id };
             await _mediator.Send(command);
             return NoContent();
         }
