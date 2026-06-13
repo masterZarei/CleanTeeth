@@ -13,8 +13,8 @@ Content-Type: application/json
   "patientId":"019e890b-ba0e-786f-8a00-89d86e247a01",
   "dentistId":"019e9e7c-51f3-7e5c-8dd3-2b27467ad066",
   "dentalOfficeId":"019e63b6-a2eb-7987-af46-af05ac4224e5",
-  "startDate":"2027-11-01T09:30:00",
-  "endDate":"2027-11-01T11:30:00"
+  "startDate":"2026-06-14T09:30:00",
+  "endDate":"2026-06-14T11:30:00"
 
 }
 

@@ -1,4 +1,6 @@
-﻿namespace CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentsList
+﻿using CleanTeeth.Domain.Enums;
+
+namespace CleanTeeth.Application.Contracts.Repositories.Mdodels
 {
     public class AppointmentsFilterDTO
     {
@@ -7,5 +9,6 @@
         public Guid? DentalOfficeId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public AppointmentStatusEnum? AppointmentStatus { get; set; }
     }
 }

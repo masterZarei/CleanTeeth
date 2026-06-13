@@ -1,5 +1,5 @@
 ﻿using CleanTeeth.Application.Contracts.Repositories;
-using CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentsList;
+using CleanTeeth.Application.Contracts.Repositories.Mdodels;
 using CleanTeeth.Domain.Entities;
 using CleanTeeth.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
@@ -49,7 +49,10 @@ namespace CleanTeeth.Persistence.Repositories
             {
                 queryable = queryable.Where(x => x.DentistId == appointmentsFilterDTO.DentistId);
             }
-
+            if (appointmentsFilterDTO.AppointmentStatus is not null)
+            {
+                queryable = queryable.Where(x => x.Status == appointmentsFilterDTO.AppointmentStatus);
+            }
             return await queryable.Where(x => x.TimeInterval.Start >= appointmentsFilterDTO.StartDate 
             && x.TimeInterval.End <= appointmentsFilterDTO.EndDate)
                 .OrderBy(x=>x.TimeInterval.Start)

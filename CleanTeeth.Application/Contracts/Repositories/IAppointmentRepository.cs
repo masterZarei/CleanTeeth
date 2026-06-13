@@ -1,4 +1,4 @@
-﻿using CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentsList;
+﻿using CleanTeeth.Application.Contracts.Repositories.Mdodels;
 using CleanTeeth.Domain.Entities;
 
 namespace CleanTeeth.Application.Contracts.Repositories
