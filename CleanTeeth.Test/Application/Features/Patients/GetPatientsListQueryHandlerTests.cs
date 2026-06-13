@@ -3,9 +3,6 @@ using CleanTeeth.Application.Features.Patients.Queries.GetPatientsList;
 using CleanTeeth.Domain.Entities;
 using CleanTeeth.Domain.ValueObjects;
 using NSubstitute;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CleanTeeth.Test.Application.Features.Patients
 {
@@ -27,12 +24,12 @@ namespace CleanTeeth.Test.Application.Features.Patients
         [TestMethod]
         public async Task Handle_ValidQuery_ReturnsPatientsPaginated()
         {
-            var page =1;
+            var page = 1;
             var recordsPerPage = 2;
             var patient1 = new Patient("Patient 1", new EmailValueObject("p1@gmail.com"));
             var patient2 = new Patient("Patient 2", new EmailValueObject("p2@gmail.com"));
 
-            IEnumerable<Patient> patients = new List<Patient> { patient1,  patient2 };
+            IEnumerable<Patient> patients = new List<Patient> { patient1, patient2 };
 
             _patientRepository.GetFiltered(Arg.Any<PatientsFilterDTO>()).Returns(Task.FromResult(patients));
             _patientRepository.GetTotalAmountOfRecords().Returns(Task.FromResult(10));
@@ -47,7 +44,7 @@ namespace CleanTeeth.Test.Application.Features.Patients
         public async Task Handle_WhenThereAreNoPatients_ReturnsEmptyListAndZero()
         {
 
-            IEnumerable<Patient> patients = new List<Patient> {  };
+            IEnumerable<Patient> patients = new List<Patient> { };
 
             _patientRepository.GetFiltered(Arg.Any<PatientsFilterDTO>()).Returns(Task.FromResult(patients));
             _patientRepository.GetTotalAmountOfRecords().Returns(Task.FromResult(0));

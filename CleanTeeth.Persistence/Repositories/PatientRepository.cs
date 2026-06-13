@@ -10,7 +10,7 @@ namespace CleanTeeth.Persistence.Repositories
     {
         private readonly CleanTeethDbContext _context;
 
-        public PatientRepository(CleanTeethDbContext context) 
+        public PatientRepository(CleanTeethDbContext context)
             : base(context)
         {
             _context = context;
@@ -21,7 +21,7 @@ namespace CleanTeeth.Persistence.Repositories
             var queryable = _context.Patients.AsQueryable();
             if (!string.IsNullOrWhiteSpace(filter.Name))
             {
-               queryable = queryable.Where(q => q.Name.Contains(filter.Name));
+                queryable = queryable.Where(q => q.Name.Contains(filter.Name));
             }
             if (!string.IsNullOrWhiteSpace(filter.Email))
             {

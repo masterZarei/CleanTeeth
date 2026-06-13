@@ -10,7 +10,7 @@ namespace CleanTeeth.Persistence
 {
     public static class RegisterPersistenceServices
     {
-        public static IServiceCollection AddPersistenceServices(this IServiceCollection services,IConfiguration configuration)
+        public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<CleanTeethDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("CleanTeethConnectionString")));

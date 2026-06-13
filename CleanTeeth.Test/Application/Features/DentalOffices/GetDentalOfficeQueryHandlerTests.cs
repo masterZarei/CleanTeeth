@@ -3,9 +3,6 @@ using CleanTeeth.Application.Exceptions;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficeDetail;
 using CleanTeeth.Domain.Entities;
 using NSubstitute;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CleanTeeth.Test.Application.Features.DentalOffices
 {
@@ -46,9 +43,9 @@ namespace CleanTeeth.Test.Application.Features.DentalOffices
             var query = new GetDentalOfficeDetailQuery { Id = id };
 
             repository.GetById(id).Returns((DentalOffice)null!);
-            await Assert.ThrowsAsync<NotFoundException>(async() =>
+            await Assert.ThrowsAsync<NotFoundException>(async () =>
             {
-            await handler.Handle(query);
+                await handler.Handle(query);
             });
         }
 

@@ -53,9 +53,9 @@ namespace CleanTeeth.Persistence.Repositories
             {
                 queryable = queryable.Where(x => x.Status == appointmentsFilterDTO.AppointmentStatus);
             }
-            return await queryable.Where(x => x.TimeInterval.Start >= appointmentsFilterDTO.StartDate 
+            return await queryable.Where(x => x.TimeInterval.Start >= appointmentsFilterDTO.StartDate
             && x.TimeInterval.End <= appointmentsFilterDTO.EndDate)
-                .OrderBy(x=>x.TimeInterval.Start)
+                .OrderBy(x => x.TimeInterval.Start)
                 .ToListAsync();
         }
     }

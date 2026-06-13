@@ -34,7 +34,7 @@ namespace CleanTeeth.Application.Utilities
 
             var handlerType = typeof(IRequestHandler<>).MakeGenericType(request.GetType());
             var handler = serviceProvider.GetService(handlerType);
-            if (handler is null) 
+            if (handler is null)
             {
                 throw new MediatorException($"Handler was not found for {request.GetType().Name}");
             }

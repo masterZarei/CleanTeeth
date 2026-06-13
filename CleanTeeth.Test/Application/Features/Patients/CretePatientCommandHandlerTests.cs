@@ -5,9 +5,6 @@ using CleanTeeth.Domain.Entities;
 using CleanTeeth.Domain.ValueObjects;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CleanTeeth.Test.Application.Features.Patients
 {

@@ -44,7 +44,8 @@ namespace CleanTeeth.Test.Application.Features.DentalOffices
         }
 
         [TestMethod]
-        public async Task Handle_WhenTheresAnError_RollbackHappens() {            
+        public async Task Handle_WhenTheresAnError_RollbackHappens()
+        {
             var command = new CreateDentalOfficeCommand
             {
                 Name = "Test Dental Office"

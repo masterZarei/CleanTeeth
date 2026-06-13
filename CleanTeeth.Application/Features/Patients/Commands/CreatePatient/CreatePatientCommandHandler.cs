@@ -19,7 +19,7 @@ namespace CleanTeeth.Application.Features.Patients.Commands.CreatePatient
         public async Task<Guid> Handle(CreatePatientCommand request)
         {
             var email = new EmailValueObject(request.Email);
-            var patient = new Patient(request.Name , email);
+            var patient = new Patient(request.Name, email);
 
             try
             {

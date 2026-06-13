@@ -2,7 +2,6 @@
 using CleanTeeth.Application.Contracts.Repositories;
 using CleanTeeth.Application.Exceptions;
 using CleanTeeth.Application.Utilities;
-using CleanTeeth.Domain.Entities;
 using CleanTeeth.Domain.ValueObjects;
 
 namespace CleanTeeth.Application.Features.Dentists.Commands.UpdateDentist
@@ -29,7 +28,7 @@ namespace CleanTeeth.Application.Features.Dentists.Commands.UpdateDentist
                 await _dentistRepository.Update(dentist);
                 await _unitOfWork.Commit();
             }
-            catch 
+            catch
             {
                 await _unitOfWork.RollBack();
                 throw;

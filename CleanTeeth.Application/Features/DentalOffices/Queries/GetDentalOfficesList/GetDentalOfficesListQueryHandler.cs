@@ -15,7 +15,7 @@ namespace CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOffices
         public async Task<List<DentalOfficesListDTO>> Handle(GetDentalOfficesListQuery request)
         {
             var dentalOffices = await repository.GetAll();
-            var dentalOfficesDTO = dentalOffices.Select(dentalOffices=> dentalOffices.ToDTO()).ToList();
+            var dentalOfficesDTO = dentalOffices.Select(dentalOffices => dentalOffices.ToDTO()).ToList();
             return dentalOfficesDTO;
         }
     }

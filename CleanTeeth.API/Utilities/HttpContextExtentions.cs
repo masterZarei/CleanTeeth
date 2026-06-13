@@ -4,7 +4,7 @@
     {
         public static void InsertPaginationsInformationInHeader(this HttpContext httpContext, int totalAmountOfRecords)
         {
-            httpContext.Response.Headers.Append("total-amount-of-records",totalAmountOfRecords.ToString());
+            httpContext.Response.Headers.Append("total-amount-of-records", totalAmountOfRecords.ToString());
         }
     }
 }

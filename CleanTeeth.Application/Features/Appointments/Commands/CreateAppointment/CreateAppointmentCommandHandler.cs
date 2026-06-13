@@ -48,7 +48,7 @@ namespace CleanTeeth.Application.Features.Appointments.Commands.CreateAppointmen
             await _notifications.SendAppointmentConfirmation(notificationDTO);
 
             return id.Value;
-            
+
         }
     }
 }

@@ -6,7 +6,7 @@
         public required string Patinet { get; set; }
         public required string Dentist { get; set; }
         public required string DentalOffice { get; set; }
-        public required DateTime StartDate{ get; set; }
+        public required DateTime StartDate { get; set; }
         public required DateTime EndDate { get; set; }
         public required string Status { get; set; }
     }

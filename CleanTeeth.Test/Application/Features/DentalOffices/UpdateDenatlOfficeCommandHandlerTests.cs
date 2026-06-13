@@ -60,7 +60,7 @@ namespace CleanTeeth.Test.Application.Features.DentalOffices
             repository.GetById(id).Returns(dentalOffice);
             repository.Update(dentalOffice).Throws(new InvalidOperationException("Exception"));
 
-            await Assert.ThrowsAsync<InvalidOperationException>(()=> handler.Handle(command));
+            await Assert.ThrowsAsync<InvalidOperationException>(() => handler.Handle(command));
             await unitOfWork.Received(1).RollBack();
         }
 

@@ -11,8 +11,5 @@ namespace CleanTeeth.Security
         {
 
         }
-        protected CleanTeethSecurityDbContext()
-        {
-        }
     }
 }

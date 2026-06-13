@@ -34,7 +34,7 @@ namespace CleanTeeth.Test.Domain.Entities
                 var interval = new TimeIntervalValueObject(DateTime.UtcNow.AddDays(-1), DateTime.UtcNow);
                 new Appointment(_patientId, _dentistId, _dentalOfficeId, interval);
             });
-            
+
         }
 
         [TestMethod]
@@ -54,7 +54,7 @@ namespace CleanTeeth.Test.Domain.Entities
                 appointment.Cancel();
                 appointment.Cancel();
             });
-            
+
         }
 
         [TestMethod]

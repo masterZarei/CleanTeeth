@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList
+﻿namespace CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList
 {
     public class DentalOfficesListDTO
     {

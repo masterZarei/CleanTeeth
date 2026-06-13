@@ -1,4 +1,4 @@
-@CleanTeeth.API_HostAddress = http://localhost:4554/api/patients
+@CleanTeeth.API_HostAddress = https://localhost:7118/api/patients
 
 GET {{CleanTeeth.API_HostAddress}}?page=1&recordsPerPage=10
 ACCEPT: application/json

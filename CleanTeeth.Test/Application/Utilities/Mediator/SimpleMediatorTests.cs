@@ -9,7 +9,7 @@ namespace CleanTeeth.Test.Application.Utilities.Mediator
     [TestClass]
     public class SimpleMediatorTests
     {
-        public class FalseRequest : IRequest<string> 
+        public class FalseRequest : IRequest<string>
         {
             public required string Name { get; set; }
         }
@@ -24,7 +24,7 @@ namespace CleanTeeth.Test.Application.Utilities.Mediator
         [TestMethod]
         public async Task Send_WithRegisteredHandler_HandlerIsExecuted()
         {
-            var request = new FalseRequest() { Name="test"};
+            var request = new FalseRequest() { Name = "test" };
             var handlerMock = Substitute.For<IRequestHandler<FalseRequest, string>>();
             var serviceProviderMock = Substitute.For<IServiceProvider>();
 
@@ -39,7 +39,7 @@ namespace CleanTeeth.Test.Application.Utilities.Mediator
         [TestMethod]
         public async Task Send_WithoutRegisteredHandler_Throws()
         {
-            var request = new FalseRequest() { Name="test"};
+            var request = new FalseRequest() { Name = "test" };
             var serviceProviderMock = Substitute.For<IServiceProvider>();
             serviceProviderMock
                 .GetService(typeof(IRequestHandler<FalseRequest, string>)).

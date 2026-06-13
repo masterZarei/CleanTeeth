@@ -1,14 +1,15 @@
-﻿using CleanTeeth.Domain.Enums;
+﻿using CleanTeeth.Domain.Common;
+using CleanTeeth.Domain.Enums;
 using CleanTeeth.Domain.Exceptions;
 using CleanTeeth.Domain.ValueObjects;
 
 namespace CleanTeeth.Domain.Entities
 {
-    public class Appointment
+    public class Appointment : Auditable
     {
         private Appointment()
         {
-            
+
         }
         public Guid Id { get; private set; }
         public Guid PatientId { get; private set; }

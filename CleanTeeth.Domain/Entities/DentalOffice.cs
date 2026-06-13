@@ -1,8 +1,9 @@
-﻿using CleanTeeth.Domain.Exceptions;
+﻿using CleanTeeth.Domain.Common;
+using CleanTeeth.Domain.Exceptions;
 
 namespace CleanTeeth.Domain.Entities
 {
-    public class DentalOffice
+    public class DentalOffice : Auditable
     {
         public Guid Id { get; private set; }
         public string Name { get; private set; } = null!;

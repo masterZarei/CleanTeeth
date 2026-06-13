@@ -1,9 +1,6 @@
 ﻿using CleanTeeth.Domain.Entities;
 using CleanTeeth.Domain.Exceptions;
 using CleanTeeth.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CleanTeeth.Test.Domain.Entities
 {

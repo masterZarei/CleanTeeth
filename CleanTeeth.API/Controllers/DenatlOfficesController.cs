@@ -54,7 +54,7 @@ namespace CleanTeeth.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var command = new DeleteDentalOfficeCommand { Id = id};
+            var command = new DeleteDentalOfficeCommand { Id = id };
             await mediator.Send(command);
             return NoContent();
         }

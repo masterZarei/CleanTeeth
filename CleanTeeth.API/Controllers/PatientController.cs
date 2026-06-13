@@ -30,7 +30,7 @@ namespace CleanTeeth.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<PatientDetailDTO>> Get(Guid id)
         {
-            var query = new GetPatientDetailQuery { Id = id};
+            var query = new GetPatientDetailQuery { Id = id };
             return await _mediator.Send(query);
         }
 

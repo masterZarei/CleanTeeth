@@ -7,7 +7,7 @@ namespace CleanTeeth.Test.Domain.ValueObjects
     public class TimeIntervalTests
     {
         [TestMethod]
-        public void Constructor_StartIsAfterEnd_Throws() 
+        public void Constructor_StartIsAfterEnd_Throws()
         {
             Assert.Throws<BusinessRuleException>(() =>
             {

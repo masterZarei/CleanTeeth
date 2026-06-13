@@ -2,9 +2,6 @@
 using CleanTeeth.Application.Contracts.Repositories;
 using CleanTeeth.Application.Exceptions;
 using CleanTeeth.Application.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CleanTeeth.Application.Features.Dentists.Commands.DeleteDentist
 {

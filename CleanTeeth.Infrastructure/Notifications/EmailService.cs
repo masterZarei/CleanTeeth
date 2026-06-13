@@ -1,6 +1,5 @@
 ﻿using CleanTeeth.Application.Notifications;
 using Microsoft.Extensions.Configuration;
-using System.Globalization;
 using System.Net;
 using System.Net.Mail;
 

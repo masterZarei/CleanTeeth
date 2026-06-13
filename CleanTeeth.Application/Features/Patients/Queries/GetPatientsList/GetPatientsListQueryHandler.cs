@@ -16,7 +16,7 @@ namespace CleanTeeth.Application.Features.Patients.Queries.GetPatientsList
         {
             var patients = await _patientRepository.GetFiltered(request);
             var totalAmountOfRecords = await _patientRepository.GetTotalAmountOfRecords();
-            var patientsDTO = patients.Select(patient=>patient.ToDTO()).ToList();
+            var patientsDTO = patients.Select(patient => patient.ToDTO()).ToList();
 
             var paginatedDTO = new PaginatedDTO<PatientListDTO>
             {

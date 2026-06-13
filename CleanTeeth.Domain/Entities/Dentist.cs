@@ -1,13 +1,14 @@
-﻿using CleanTeeth.Domain.Exceptions;
+﻿using CleanTeeth.Domain.Common;
+using CleanTeeth.Domain.Exceptions;
 using CleanTeeth.Domain.ValueObjects;
 
 namespace CleanTeeth.Domain.Entities
 {
-    public class Dentist
+    public class Dentist : Auditable
     {
         private Dentist()
         {
-            
+
         }
         public Guid Id { get; private set; }
         public string Name { get; private set; } = null!;

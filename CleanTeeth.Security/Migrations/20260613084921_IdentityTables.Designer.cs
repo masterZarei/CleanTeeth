@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CleanTeeth.Security.Migrations
 {
     [DbContext(typeof(CleanTeethSecurityDbContext))]
-    [Migration("20260613084248_IdentityTables")]
+    [Migration("20260613084921_IdentityTables")]
     partial class IdentityTables
     {
         /// <inheritdoc />
