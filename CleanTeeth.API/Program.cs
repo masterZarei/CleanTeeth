@@ -3,6 +3,8 @@ using CleanTeeth.API.Middlewares;
 using CleanTeeth.Application;
 using CleanTeeth.Infrastructure;
 using CleanTeeth.Persistence;
+using CleanTeeth.Security;
+using CleanTeeth.Security.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices();
+builder.Services.AddSecurityService();
 
 builder.Services.AddHostedService<AppointmentsReminderJob>();
 
@@ -20,6 +23,8 @@ builder.Services.AddHostedService<AppointmentsReminderJob>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.MapIdentityApi<User>();
+
 app.UseCustomExceptionHandler();
 
 app.UseHttpsRedirection();
